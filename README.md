@@ -12,7 +12,7 @@ Vamos utilizar as portas 8080 e 3306 para este exemplo. Portanto, elas precisam 
 - O Docker Compose deve estar instalado. Veja [como instalar o Docker Compose aqui](https://docs.docker.com/compose/install/).
 
 ### Passos para execução
-1. Clonar o projeto localmente: `git clone https://github.com`
+1. Clonar o projeto localmente: `git clone https://github.com/brunolellis/myboard-springboot-docker.git`
 2. Empacotar a aplicação: `mvn package`
 3. Subir os contêineres _web_ e _db_: `docker-compose up`
 4. Criar um Post via JSON: `curl -H "Content-Type: application/json" -X POST -d '{"autor":"Bruno","titulo":"Primeiro post","texto":"Texto do primeiro post do blog!"}' http://localhost:8080/posts`
