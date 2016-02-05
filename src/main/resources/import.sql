@@ -1,0 +1,1 @@
+insert into post(autor, texto, titulo) values ('Bruno Lellis', 'Texto teste post MyBoard!', 'Primeiro post');
