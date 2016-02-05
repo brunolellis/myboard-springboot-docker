@@ -16,4 +16,4 @@ Vamos utilizar as portas 8080 e 3306 para este exemplo. Portanto, elas precisam 
 2. Empacotar a aplicação: `mvn package`
 3. Subir os contêineres _web_ e _db_: `docker-compose up`
 4. Criar um Post via JSON: `curl -H "Content-Type: application/json" -X POST -d '{"autor":"Bruno","titulo":"Primeiro post","texto":"Texto do primeiro post do blog!"}' http://localhost:8080/posts`
-5. Visualizar os posts: http://localhost:8080/posts
+5. Visualizar os posts: [http://localhost:8080/posts](http://localhost:8080/posts)
