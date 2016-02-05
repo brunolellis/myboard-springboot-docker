@@ -9,7 +9,8 @@ db:
         MYSQL_DATABASE: myboard
 
 web:
-    image: java:openjdk-8-jdk
+    image: anapsix/alpine-java:8
+    #command: echo '127.0.0.1 db' >> /etc/hosts
     working_dir: /app
     volumes:
         - ./target:/app
@@ -17,4 +18,4 @@ web:
         - "8080:8080"
     command: java -jar /app/myboard-0.0.1-SNAPSHOT.jar
     links:
-        - db
+        - db:db
