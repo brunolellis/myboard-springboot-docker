@@ -10,7 +10,6 @@ db:
 
 web:
     image: anapsix/alpine-java:8
-    #command: echo '127.0.0.1 db' >> /etc/hosts
     working_dir: /app
     volumes:
         - ./target:/app
