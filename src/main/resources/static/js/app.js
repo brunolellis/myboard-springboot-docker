@@ -1,5 +1,5 @@
 'use strict';
-var myboardApp = angular.module('myboard', []);
+var myboardApp = angular.module('myboardApp', []);
 
 myboardApp.factory('PostService', ['$http', '$q', function($http, $q) {
 
@@ -8,10 +8,10 @@ myboardApp.factory('PostService', ['$http', '$q', function($http, $q) {
   return {
 
     fetchAll: function() {
-      return $http.get('/posts')
+      return $http.get(API_URL + '/posts')
         .then(
           function(response) {
-            return response.data;
+            return response.data[0].content;
           },
           function(errResponse) {
             console.error('Error while fetching posts');
