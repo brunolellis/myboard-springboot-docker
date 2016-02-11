@@ -40,5 +40,9 @@ myboardApp.controller('PostController', ['$scope', 'PostService', function($scop
       );
   };
 
+  self.novoPost = function() {
+    console.log('oioioioioi');
+  };
+
   self.fetchAll();
 }]);
