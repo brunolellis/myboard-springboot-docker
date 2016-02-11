@@ -1,4 +1,4 @@
-package com.matera.myboard.post;
+package com.matera.myboard.api.post;
 
 import java.util.List;
 

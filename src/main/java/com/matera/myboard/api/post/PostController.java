@@ -1,4 +1,4 @@
-package com.matera.myboard.post;
+package com.matera.myboard.api.post;
 
 import java.util.List;
 
@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.matera.myboard.api.ApiController;
+
 @RestController
-public class PostController {
+public class PostController extends ApiController {
 
     @Autowired
     private PostRepository postRespository;
