@@ -17,32 +17,95 @@
 
 		<div class="blog-header">
 			<h1 class="blog-title">MyBoard</h1>
-			<p class="lead blog-description">Exemplo de uso do Docker com Spring Boot, entre outras buzzwords!</p>
+			<p class="lead blog-description">Exemplo de uso do Docker com
+				Spring Boot, entre outras buzzwords!</p>
 		</div>
 
 		<div class="row">
 			<div class="col-sm-8 blog-main">
+			    <div id="alerta" class="alert hide"></div>
 				<div class="blog-post" ng-repeat="post in ctrl.posts">
-					<h2 class="blog-post-title">{{post.titulo}}t</h2>
+					<h2 class="blog-post-title">{{post.titulo}}</h2>
 					<p class="blog-post-meta">
 						by <a href="#">{{post.autor}}</a>
+						<span ng-click="ctrl.remover(post)" style="cursor:pointer">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true" 
+							  title="Remover post"></span>
+						</span>
 					</p>
 					<p>{{post.texto}}</p>
-					<hr/>
+					<hr />
 				</div>
 			</div>
 			<div class="col-sm-3">
-				<button type="button" class="btn btn-primary" ng-click="ctrl.novoPost()">Novo post</button>
-				<br/><br/>
-                <div class="sidebar-module sidebar-module-inset">
-                    <h4>Sobre</h4>
-                    <p>Este é um projeto de blog com o intuito de demonstrar o uso, principalmente, do Docker e Spring Boot.</p>
-                </div>
-            </div>
+				<button type="button" class="btn btn-primary"
+					data-toggle="modal" data-target="#myModal"
+					ng-click="self.novo()">Novo post</button>
+				<br /> <br />
+				<div class="sidebar-module sidebar-module-inset">
+					<h4>Sobre</h4>
+					<p>Este é um projeto de blog com o intuito de demonstrar o uso,
+						principalmente, do Docker e Spring Boot.</p>
+				</div>
+			</div>
 		</div>
 
-		<script
-			src="http://cdn.jsdelivr.net/webjars/angularjs/1.4.9/angular.min.js"></script>
-		<script type="text/javascript" src="/js/app.js"></script>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Fechar">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Novo post</h4>
+					</div>
+					<div class="modal-body">
+					
+						<form role="form">
+							<div class="form-group">
+								<label for="autor">Autor</label> 
+								<input id="autor"
+									type="autor" 
+									class="form-control" 
+									ng-model="ctrl.post.autor"
+									placeholder="Nome do autor" />
+							</div>
+                            <div class="form-group">
+                                <label for="title">Título</label> 
+                                <input id="titulo"
+                                    type="titulo" 
+                                    class="form-control" 
+                                    ng-model="ctrl.post.titulo"
+                                    placeholder="Título do post" />
+                            </div>
+                            <div class="form-group">
+                                <label for="texto">Texto</label> 
+                                <textarea id="texto"
+                                    rows="5"
+                                    class="form-control"
+                                    ng-model="ctrl.post.texto"
+                                    placeholder="Texto do post"></textarea>
+                            </div>
+						</form>
+						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary" ng-click="ctrl.criar(ctrl.post)">Criar post</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
+	<script src="/js/app.js"></script>
 </body>
 </html>
