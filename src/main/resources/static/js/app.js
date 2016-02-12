@@ -23,7 +23,7 @@ myboardApp.factory('PostService', [ '$http', '$q', function($http, $q) {
 		},
 		
 		remover: function(idPost) {
-			return $http.delete(API_URL + '/post/' + idPost).then(function() {
+			return $http.delete(API_URL + '/posts/' + idPost).then(function() {
 				return;
 			}, function(e) {
 				return $q.reject(e);
@@ -41,14 +41,6 @@ myboardApp.controller('PostController', [ '$scope', 'PostService',
 		self.posts = [];
 		self.post = {};
 
-		var fetchAll = function() {
-			PostService.fetchAll().then(function(d) {
-				self.posts = d;
-			}, function(e) {
-				erro('<b>Ops!</b> Algo errado aconteceu ao carregar os posts! ;(');
-			});
-		};
-
 		self.novo = function() {
 			self.post = {};
 		};
@@ -63,7 +55,7 @@ myboardApp.controller('PostController', [ '$scope', 'PostService',
 		
 		self.remover = function(post) {
 			PostService.remover(post.id).then(function() {
-				sucesso('<b>Yay!</b> O seu post foi criado com sucesso! :D');
+				sucesso('<b>Yay!</b> O seu post foi removido com sucesso! :D');
 			}, function(e) {
 				erro('<b>Ops!</b> Algo errado aconteceu! ;(');
 			});
@@ -73,13 +65,24 @@ myboardApp.controller('PostController', [ '$scope', 'PostService',
 			exibirAlerta("alert-success", msg);
 		};
 		
-		var erro = function(msg) {
-			exibirAlerta("alert-danger", msg);
+		var erro = function(msg, delay) {
+			exibirAlerta("alert-danger", msg, delay);
 		};
 		
-		var exibirAlerta = function(classe, msg) {
+		var exibirAlerta = function(classe, msg, delay) {
 			$("#alerta").html(msg).addClass(classe).removeClass("hide").hide().slideDown();
-			$("#alerta").delay(3000).slideUp(1000);
+			
+			if (delay === undefined) {
+				$("#alerta").delay(3000).slideUp(1000);
+			}
+		};
+		
+		var fetchAll = function() {
+			PostService.fetchAll().then(function(d) {
+				self.posts = d;
+			}, function(e) {
+				erro('<b>Ops!</b> Algo errado aconteceu ao carregar os posts! ;(', true);
+			});
 		};
 		
 		fetchAll();
