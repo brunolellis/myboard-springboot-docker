@@ -11,6 +11,8 @@ public interface PostRepository extends Repository<Post, Long> {
     
     List<Post> findAll(Pageable page);
     
+    List<Post> findTop10ByOrderByIdDesc();
+    
     Post findById(Long id);
 
     Post save(Post post);

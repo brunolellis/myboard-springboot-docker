@@ -3,7 +3,6 @@ package com.matera.myboard.api.post;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,8 +20,9 @@ public class PostController extends ApiController {
     private PostRepository postRespository;
     
     @RequestMapping(path = "/posts", method = RequestMethod.GET)
-    public List<Post> findAll(Pageable page) {
-        return postRespository.findAll(page);
+    public List<Post> findAll() {
+//        return postRespository.findAll(page);
+        return postRespository.findTop10ByOrderByIdDesc();
     }
     
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
