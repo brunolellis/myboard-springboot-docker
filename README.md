@@ -20,3 +20,15 @@ Vamos utilizar as portas 8080 e 3306 para este exemplo. Portanto, elas precisam 
 
 
 [![Build Status](https://api.travis-ci.org/brunolellis/myboard-springboot-docker.svg?branch=master)](https://travis-ci.org/brunolellis/myboard-springboot-docker)
+
+
+### TODO
+vi ~/.m2/settings.xml
+  <servers>
+    <server>
+      <id>docker-hub</id>
+      <username>brunolellis</username>
+      <password>{ENCRYPTED PASSWORD}</password>
+    </server>
+  </servers>
+
