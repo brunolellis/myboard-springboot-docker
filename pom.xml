@@ -85,12 +85,13 @@
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.3.9</version>
+				<version>0.4.0</version>
 				<configuration>
 					<imageName>brunolellis/myboard</imageName>
 					<imageTags>
 						<imageTag>latest</imageTag>
 					</imageTags>
+					<serverId>docker-hub</serverId>
 					<dockerDirectory>${project.basedir}/docker</dockerDirectory>
 
 					<resources>
