@@ -27,7 +27,7 @@ Dessa forma, ao executar o comando `mvn clean package docker:build -DpushImage` 
 1. Compilação e geração do pacote jar executável (`target/myboard-0.0.1-SNAPSHOT.jar`);
 2. Criação de uma imagem conforme especificado no arquivo [Dockerfile](https://github.com/brunolellis/myboard-springboot-docker/blob/spotify/docker/Dockerfile), além das informações de nome, versão, etc no pom.xml;
 3. Publicação da imagem no [Docker Hub](https://hub.docker.com/r/brunolellis/myboard/).
-> Obs: a autenticação desse passo necessita de configuração do settings.xml do Maven conforme o seguinte trecho:\
+> Obs: a autenticação desse passo necessita de configuração do settings.xml do Maven conforme o seguinte trecho:
 > `vi ~/.m2/settings.xml`
 ```xml
   <servers>
@@ -40,6 +40,7 @@ Dessa forma, ao executar o comando `mvn clean package docker:build -DpushImage` 
 ```
 
 ### Como executar tudo isso?
-O arquivo [docker-compose.yml](https://github.com/brunolellis/myboard-springboot-docker/blob/spotify/docker-compose.yml) está configurando para ler a imagem "brunolellis/myboard" mais recente.\
+O arquivo [docker-compose.yml](https://github.com/brunolellis/myboard-springboot-docker/blob/spotify/docker-compose.yml) está configurando para ler a imagem "brunolellis/myboard" mais recente.
+
 Ao executar o comando `docker-compose up`, o Docker fará a verificação se a sua imagem é a mais recente (e a atualização automaticamente, caso não seja) e executará essa imagem realizando o link com o contêiner mysql.
 
